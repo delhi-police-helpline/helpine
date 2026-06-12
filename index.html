@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delhi Police Railway Unit – Emergency Helplines</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a1f44;
+    --royal: #1a3a8f;
+    --gold: #d4a017;
+    --gold-light: #f5c842;
+    --red: #c0392b;
+    --bg: #f0f4fb;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a6a8a;
+    --border: #c8d6ef;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 40px;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--royal) 100%);
+    color: var(--white);
+    padding: 28px 20px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  }
+  .header-emblem {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .header h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.3rem, 5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .header p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* EMERGENCY BANNER */
+  .emergency-banner {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .emergency-banner .label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .emergency-banner .number {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 4px;
+  }
+  .emergency-banner a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 0;
+  }
+
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 28px 0 12px;
+    padding-left: 4px;
+    border-left: 3px solid var(--gold);
+    padding-left: 10px;
+  }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    gap: 10px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .card:active { transform: scale(0.98); }
+  .card-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+  .card-label small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .card-number {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--royal);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+  .card-number:hover { color: var(--red); }
+
+  /* SHO CARDS */
+  .sho-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .sho-card .station {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+  .sho-card .station small {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 1px;
+  }
+  .sho-card a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .sho-card a:hover { color: var(--red); }
+
+  /* CONTROL ROOM */
+  .control-card {
+    background: linear-gradient(135deg, var(--navy), var(--royal));
+    border-radius: 10px;
+    padding: 16px 18px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .control-card .label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    opacity: 0.85;
+  }
+  .control-card .numbers {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+  .control-card a {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    padding: 16px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-emblem">🚔</div>
+  <h1>Delhi Police Railway Unit</h1>
+  <p>Emergency Helplines</p>
+</div>
+
+<div class="emergency-banner">
+  <div>
+    <div class="label">Police Helpline</div>
+    <a href="tel:112"><div class="number">112</div></a>
+  </div>
+  <div>
+    <div class="label">Railway Helpline</div>
+    <a href="tel:1512"><div class="number">1512</div></a>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section-title">National Helplines</div>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-label">Anti Terror (Eyes &amp; Ears)</div>
+      <a href="tel:14547" class="card-number">14547</a>
+    </div>
+    <div class="card">
+      <div class="card-label">Women in Distress</div>
+      <a href="tel:1091" class="card-number">1091</a>
+    </div>
+    <div class="card">
+      <div class="card-label">Missing Persons</div>
+      <a href="tel:1094" class="card-number">1094</a>
+    </div>
+    <div class="card">
+      <div class="card-label">Anti Corruption</div>
+      <a href="tel:1064" class="card-number">1064</a>
+    </div>
+    <div class="card">
+      <div class="card-label">Cyber Crime</div>
+      <a href="tel:1930" class="card-number">1930</a>
+    </div>
+    <div class="card">
+      <div class="card-label">Disaster Management</div>
+      <a href="tel:1077" class="card-number">1077</a>
+    </div>
+  </div>
+
+  <div class="section-title">Station House Officers (SHO)</div>
+  <div class="card-grid">
+    <div class="sho-card">
+      <div class="station">New Delhi Railway Station<small>SHO</small></div>
+      <a href="tel:8750871305">8750871305</a>
+    </div>
+    <div class="sho-card">
+      <div class="station">Old Delhi Railway Station<small>SHO</small></div>
+      <a href="tel:8750871302">8750871302</a>
+    </div>
+    <div class="sho-card">
+      <div class="station">Anand Vihar Railway Station<small>SHO</small></div>
+      <a href="tel:8750871314">8750871314</a>
+    </div>
+    <div class="sho-card">
+      <div class="station">Hazrat Nizamuddin Railway Station<small>SHO</small></div>
+      <a href="tel:8750871311">8750871311</a>
+    </div>
+    <div class="sho-card">
+      <div class="station">Sarai Rohilla Railway Station<small>SHO</small></div>
+      <a href="tel:8750871308">8750871308</a>
+    </div>
+    <div class="sho-card">
+      <div class="station">Sabzi Mandi Railway Station<small>SHO</small></div>
+      <a href="tel:8750871303">8750871303</a>
+    </div>
+    <div class="sho-card">
+      <div class="station">Delhi Cantt. Railway Station<small>SHO</small></div>
+      <a href="tel:8750871309">8750871309</a>
+    </div>
+  </div>
+
+  <div class="section-title">Control Room</div>
+  <div class="control-card">
+    <div class="label">Delhi Police Railway<br>Control Room</div>
+    <div class="numbers">
+      <a href="tel:8750871512">8750871512</a>
+      <a href="tel:23219007">23219007</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Delhi Police Railway Unit &nbsp;|&nbsp; Tap any number to call directly
+</div>
+
+</body>
+</html>
